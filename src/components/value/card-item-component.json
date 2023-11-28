@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_value_card_item_components",
+  "info": {
+    "displayName": "cardItem_component",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "enumeration",
+      "enum": [
+        "some"
+      ]
+    }
+  }
+}

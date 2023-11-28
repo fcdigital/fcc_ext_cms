@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_value_card_item_work_list_items",
+  "info": {
+    "displayName": "cardItem_workListItems",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "cardItem_worksListItem": {
+      "type": "string"
+    }
+  }
+}

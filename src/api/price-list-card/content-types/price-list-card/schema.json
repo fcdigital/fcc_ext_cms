@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "price_list_cards",
+  "info": {
+    "singularName": "price-list-card",
+    "pluralName": "price-list-cards",
+    "displayName": "PriceListCard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cardItem_type": {
+      "type": "string"
+    },
+    "cardItem_deadline": {
+      "type": "string"
+    },
+    "cardItem_price": {
+      "type": "string"
+    },
+    "cardItem_description": {
+      "type": "string"
+    },
+    "cardItem_workList": {
+      "displayName": "cardItem_workList",
+      "type": "component",
+      "repeatable": true,
+      "component": "card-item-fields.card-item-work-list"
+    }
+  }
+}
