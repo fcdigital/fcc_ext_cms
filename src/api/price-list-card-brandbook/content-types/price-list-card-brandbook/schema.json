@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "cardItem_type": {
-      "type": "string"
+      "type": "string"  
     },
     "cardItem_deadline": {
       "type": "string"
