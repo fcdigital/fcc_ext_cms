@@ -362,44 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiPriceListCardPriceListCard extends Schema.CollectionType {
-  collectionName: 'price_list_cards';
-  info: {
-    singularName: 'price-list-card';
-    pluralName: 'price-list-cards';
-    displayName: 'PriceListCard';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    cardItem_type: Attribute.String;
-    cardItem_deadline: Attribute.String;
-    cardItem_price: Attribute.String;
-    cardItem_description: Attribute.String;
-    cardItem_workList: Attribute.Component<
-      'card-item-fields.card-item-work-list',
-      true
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::price-list-card.price-list-card',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::price-list-card.price-list-card',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -513,6 +475,50 @@ export interface PluginUploadFolder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::upload.folder',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
       'oneToOne',
       'admin::user'
     > &
@@ -671,43 +677,115 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface ApiPriceListCardBrandbookPriceListCardBrandbook
+  extends Schema.CollectionType {
+  collectionName: 'price_list_card_brandbooks';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
+    singularName: 'price-list-card-brandbook';
+    pluralName: 'price-list-card-brandbooks';
+    displayName: 'PriceListCard__brandbook';
     description: '';
   };
   options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
+    draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
+    cardItem_type: Attribute.String;
+    cardItem_deadline: Attribute.String;
+    cardItem_price: Attribute.String;
+    cardItem_workList: Attribute.Component<
+      'card-item-fields.card-item-work-list',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::price-list-card-brandbook.price-list-card-brandbook',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::price-list-card-brandbook.price-list-card-brandbook',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPriceListCardSitePriceListCardSite
+  extends Schema.CollectionType {
+  collectionName: 'price_list_card_sites';
+  info: {
+    singularName: 'price-list-card-site';
+    pluralName: 'price-list-card-sites';
+    displayName: 'PriceListCard__site';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardItem_type: Attribute.String;
+    cardItem_deadline: Attribute.String;
+    cardItem_price: Attribute.String;
+    cardItem_description: Attribute.String;
+    cardItem_workList: Attribute.Component<
+      'card-item-fields.card-item-work-list',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::price-list-card-site.price-list-card-site',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::price-list-card-site.price-list-card-site',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSlideSlide extends Schema.CollectionType {
+  collectionName: 'slides';
+  info: {
+    singularName: 'slide';
+    pluralName: 'slides';
+    displayName: 'Slide';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media;
+    sliderImage: Attribute.Media;
+    serviceName: Attribute.String;
+    year: Attribute.String;
+    about: Attribute.Text;
+    img_alt: Attribute.String;
+    logo_sm: Attribute.Media;
+    isSlideDark: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slide.slide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slide.slide',
       'oneToOne',
       'admin::user'
     > &
@@ -725,13 +803,15 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::price-list-card.price-list-card': ApiPriceListCardPriceListCard;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
+      'api::price-list-card-brandbook.price-list-card-brandbook': ApiPriceListCardBrandbookPriceListCardBrandbook;
+      'api::price-list-card-site.price-list-card-site': ApiPriceListCardSitePriceListCardSite;
+      'api::slide.slide': ApiSlideSlide;
     }
   }
 }

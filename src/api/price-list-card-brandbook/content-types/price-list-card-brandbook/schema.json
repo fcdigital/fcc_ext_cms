@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "price_list_cards",
+  "collectionName": "price_list_card_brandbooks",
   "info": {
-    "singularName": "price-list-card",
-    "pluralName": "price-list-cards",
-    "displayName": "PriceListCard",
+    "singularName": "price-list-card-brandbook",
+    "pluralName": "price-list-card-brandbooks",
+    "displayName": "PriceListCard__brandbook",
     "description": ""
   },
   "options": {
@@ -21,11 +21,7 @@
     "cardItem_price": {
       "type": "string"
     },
-    "cardItem_description": {
-      "type": "string"
-    },
     "cardItem_workList": {
-      "displayName": "cardItem_workList",
       "type": "component",
       "repeatable": true,
       "component": "card-item-fields.card-item-work-list"
