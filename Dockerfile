@@ -1,5 +1,5 @@
 # выбираем базовый образ
-FROM node:18.0.0
+FROM node:18.17.0
 
 # создаем и переходим в рабочую директорию
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # устанавливаем зависимости
-RUN npm install
+RUN npm install -g npm@latest && npm install --legacy-peer-deps
 
 # копируем весь проект
 COPY . .
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # определяем порт, на котором будет работать приложение
-EXPOSE 3000
+EXPOSE 1337
 
 # запускаем приложение
 CMD ["npm", "start"]
