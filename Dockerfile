@@ -13,11 +13,8 @@ RUN npm install -g npm@latest && npm install --legacy-peer-deps
 # копируем весь проект
 COPY . .
 
-# собираем проект
-RUN npm run build
-
 # определяем порт, на котором будет работать приложение
 EXPOSE 1337
 
 # запускаем приложение
-CMD ["npm", "start"]
+CMD ["npm", "run", "develop"]

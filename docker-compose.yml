@@ -1,0 +1,15 @@
+version: '3'
+services:
+  fcd_cms:
+    image: fcd_cms
+    environment:
+      DATABASE_CLIENT: sqlite
+      DATABASE_NAME: /usr/src/api/tmp/data.db
+      DATABASE_FILENAME: /usr/src/api/tmp/data.db
+      NODE_ENV: production
+    volumes:
+      - strapi_cms:/usr/src/api/tmp
+    ports:
+      - "1337:1337"
+volumes:
+  strapi_cms:
